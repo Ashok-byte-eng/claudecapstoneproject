@@ -1,0 +1,13 @@
+Context
+
+Scenario: 
+Travelers often feel overwhelmed by too many options when choosing places to stay (hotels, vacation rentals, etc.). Currently, the search feature allows filtering only by destination, travel dates, and the number of passengers. More detailed filters, such as amenities and customer review scores, are missing. This creates frustration and makes it difficult for users to find accommodations matching specific preferences. 
+ 
+Challenges: 
+* Missing filters for amenities (Wi-Fi, breakfast) lead to poor user experience.   
+* No customer review filters make it harder to identify trustworthy or high-rated accommodations.   
+ 
+Requirements for User Story Generation: 
+Add advanced filters so that users can refine search results by:   
+• Amenities (free Wi-Fi, breakfast included).   
+• Property Type (hotel, villa). 

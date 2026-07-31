@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+.env
+.env.*
+!.env.example
+
+# Alembic
+alembic/versions/*.pyc
+
+# Node
+node_modules/
+.next/
+out/
+*.log
+.env.local
+.env.*.local
+
+# Docker
+.dockerignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
