@@ -24,6 +24,9 @@ const recompute = (state: FilterStore): Accommodation[] =>
     reviewScoreFilter: state.reviewScoreFilter,
   });
 
+export const selectActiveFilterCount = (state: FilterStore): number =>
+  state.selectedAmenities.length + state.selectedPropertyTypes.length + (state.reviewScoreFilter ? 1 : 0);
+
 export const useFilterStore = create<FilterStore>((set, get) => ({
   allAccommodations: [],
   selectedAmenities: [],

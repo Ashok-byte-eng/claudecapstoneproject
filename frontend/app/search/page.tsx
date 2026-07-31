@@ -23,29 +23,23 @@ export default function SearchPage() {
       .then((data) => setAllAccommodations(data.accommodations))
       .catch((err) => setError(err.message ?? "Failed to load accommodations."))
       .finally(() => setLoading(false));
+    // Zustand actions are referentially stable — safe to omit from deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [destination, check_in, check_out, guests]);
 
   return (
     <main className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200 px-4 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto">
           <h1 className="text-lg font-bold text-gray-900">
             Stays in <span className="text-blue-600">{destination}</span>
           </h1>
-          {/* Mobile filter button rendered inside FilterPanel */}
-          <div className="md:hidden">
-            <FilterPanel />
-          </div>
         </div>
       </header>
 
+      {/* FilterPanel renders its own desktop sidebar + mobile drawer internally */}
       <div className="max-w-7xl mx-auto px-4 py-6 flex gap-6">
-        {/* Desktop sidebar */}
-        <div className="hidden md:block">
-          <FilterPanel />
-        </div>
-
-        {/* Main content */}
+        <FilterPanel />
         <div className="flex-1 min-w-0">
           <ActiveFilterBadges />
           <ResultsList />

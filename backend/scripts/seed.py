@@ -73,9 +73,10 @@ async def seed(session: AsyncSession) -> None:
             _add_amenities(session, acc, amenities)
             _add_reviews(session, acc)
 
-    await session.commit()
+    # Flush inserts so the UPDATE subquery can see them within this transaction
+    await session.flush()
 
-    # Recompute review_score from reviews table
+    # Recompute review_score from reviews in the same atomic transaction
     await session.execute(
         text(
             "UPDATE accommodations SET review_score = sub.avg_score "

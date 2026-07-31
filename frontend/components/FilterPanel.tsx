@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useFilterStore } from "@/store/filterStore";
+import { useFilterStore, selectActiveFilterCount } from "@/store/filterStore";
 
 const AMENITIES = [
   { value: "wifi", label: "Free Wi-Fi" },
@@ -21,7 +21,7 @@ function FilterContent() {
     toggleAmenity, togglePropertyType, toggleReviewFilter, clearAllFilters,
   } = useFilterStore();
 
-  const activeCount = selectedAmenities.length + selectedPropertyTypes.length + (reviewScoreFilter ? 1 : 0);
+  const activeCount = useFilterStore(selectActiveFilterCount);
 
   return (
     <div className="space-y-6">
@@ -93,8 +93,7 @@ function FilterContent() {
 
 export default function FilterPanel() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { selectedAmenities, selectedPropertyTypes, reviewScoreFilter } = useFilterStore();
-  const activeCount = selectedAmenities.length + selectedPropertyTypes.length + (reviewScoreFilter ? 1 : 0);
+  const activeCount = useFilterStore(selectActiveFilterCount);
 
   return (
     <>

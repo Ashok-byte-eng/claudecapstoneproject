@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.database import get_db
-from app.main import limiter
+from app.limiter import limiter
 from app.schemas.accommodation import AccommodationsListResponse, SearchParams
 from app.services.accommodation_service import get_accommodations
 

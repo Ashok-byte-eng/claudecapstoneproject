@@ -33,8 +33,8 @@ def _serialize(row: Accommodation) -> AccommodationResponse:
         name=row.name,
         property_type=row.property_type.value,
         destination=row.destination,
-        price_per_night=float(row.price_per_night) if row.price_per_night else None,
-        review_score=float(row.review_score) if row.review_score else None,
+        price_per_night=float(row.price_per_night) if row.price_per_night is not None else None,
+        review_score=float(row.review_score) if row.review_score is not None else None,
         amenities=[a.name for a in row.amenities],
         image_url=row.image_url,
     )
