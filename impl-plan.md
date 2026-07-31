@@ -35,7 +35,6 @@ Wave 12 ── T-23, T-24              (needs T-11–T-14 + T-22)  ← paralleli
 Wave 13 ── T-25, T-26, T-27       (needs T-22 + T-24)  ← parallelisable
 Wave 14 ── T-28                    (needs T-25 + T-26 + T-27)
 ──────────────────────────────────────────────────────────────────
-Parallel track: T-29 starts at Wave 3 (after T-06), runs independently
 ```
 
 ---
@@ -574,6 +573,7 @@ Deliverables:
 | T-18 ResultsList | T-15 + T-16 complete | Needs store + types |
 | T-19–T-21 (FilterPanel + Badges) | T-17 + T-18 complete | Needs engine + results wired |
 | T-22 Search Results Page | T-19 + T-20 + T-21 complete | Requires all components ready |
+| T-23 Review Score Nightly Refresh | T-06 complete | Schema must exist for UPDATE query |
 | T-24 CI/CD Pipeline | Backend (T-14) + Frontend (T-22) complete | Needs deployable artifacts |
 | T-25 Azure APIM config | T-22 + T-24 complete | Needs deployed staging endpoint |
 | T-26 Filter tests sign-off | T-17 complete | Needs engine implementation |
