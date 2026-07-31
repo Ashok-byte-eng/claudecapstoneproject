@@ -17,14 +17,11 @@ async def get_accommodations(
         .where(Accommodation.destination.ilike(f"%{params.destination}%"))
         .options(selectinload(Accommodation.amenities))
         .order_by(Accommodation.review_score.desc().nullslast())
+        .limit(RECORD_THRESHOLD)  # enforced in SQL — never loads more than threshold into memory
     )
 
     result = await db.execute(stmt)
     rows = result.scalars().all()
-
-    # Enforce 2,000-record threshold
-    if len(rows) > RECORD_THRESHOLD:
-        rows = rows[:RECORD_THRESHOLD]
 
     accommodations = [_serialize(row) for row in rows]
     return AccommodationsListResponse(total=len(accommodations), accommodations=accommodations)

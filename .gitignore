@@ -20,9 +20,6 @@ out/
 .env.local
 .env.*.local
 
-# Docker
-.dockerignore
-
 # IDE
 .vscode/
 .idea/
